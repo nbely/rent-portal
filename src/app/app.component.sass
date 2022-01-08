@@ -1,0 +1,28 @@
+@use '../styles.sass' 
+
+.app
+    display: flex
+    flex-direction: column
+    height: 100vh
+    margin: 0
+
+.header
+    flex: 0 1 50px
+    background-color: lightgrey
+    border-bottom: 1px solid darkgrey
+
+.content
+    @extend .background
+    align-items: center
+    flex: 1 1 auto
+
+.footer
+    @extend .background
+    flex: 0 1 40px
+    text-align: center
+    display: flex
+    font-size: small
+
+    p
+        margin: auto
+        flex: 1
