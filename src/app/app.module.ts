@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { TenantsComponent } from './tenants/tenants.component';
 import { InvoicesComponent } from './invoices/invoices.component';
-import { TransactionsComponent } from './transactions/transactions.component';
+import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { TenantHomeComponent } from './tenant-home/tenant-home.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,10 @@ import { TenantHomeComponent } from './tenant-home/tenant-home.component';
     RoomsComponent,
     TenantsComponent,
     InvoicesComponent,
-    TransactionsComponent,
+    HomeComponent,
     AuthComponent,
-    TenantHomeComponent
+    TenantHomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
