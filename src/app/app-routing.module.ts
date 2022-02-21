@@ -8,7 +8,6 @@ import { HomeComponent } from './home/home.component';
 import { TenantHomeComponent } from './tenant-home/tenant-home.component';
 import { TenantsComponent } from './tenants/tenants.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
   { path: 'rooms', component: RoomsComponent },
