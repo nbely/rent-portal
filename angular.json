@@ -114,6 +114,16 @@
               "devServerTarget": "rent-portal:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "rent-portal:build:production",
+            "firebaseProject": "rent-portal-1e4a3",
+            "firebaseHostingSite": "rent-portal-1e4a3"
+          }
         }
       }
     }

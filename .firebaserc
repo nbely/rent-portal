@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "rent-portal-1e4a3": {
+      "hosting": {
+        "rent-portal": [
+          "rent-portal-1e4a3"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "rent-portal-1e4a3"
+  }
+}
