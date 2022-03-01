@@ -4,18 +4,23 @@ import {
   signInWithEmailAndPassword,
   signOut 
 } from '@angular/fire/auth';
-
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
 import { LoginData } from 'src/app/interfaces/login-data.interface';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   constructor(private auth: Auth) {}
+  username = new BehaviorSubject<string>(null);
 
   login({ email, password }: LoginData) {
-    return signInWithEmailAndPassword(this.auth, email, password);
+    console.log(this.auth);
+    return signInWithEmailAndPassword(this.auth, email, password)
+      .then(() => this.username.next(email));
   }
 
   register({ email, password }: LoginData) {
@@ -23,6 +28,7 @@ export class AuthService {
   }
 
   logout() {
-    return signOut(this.auth);
+    return signOut(this.auth)
+    .then(() => this.username.next(null));
   }
 }

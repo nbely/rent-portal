@@ -8,10 +8,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
   @Output() formData: EventEmitter<{
+    isUser: boolean
     email: string;
     password: string;
   }> = new EventEmitter();
 
+  hasAccount: boolean = true;
   form: FormGroup;
 
   constructor(private fb: FormBuilder) {}
@@ -23,15 +25,8 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  get email() {
-    return this.form.get('email');
-  }
-
-  get password() {
-    return this.form.get('password');
-  }
-
   onSubmit() {
-    this.formData.emit(this.form.value);
+    this.formData.emit({...this.form.value, isUser: this.hasAccount});
+    this.form.reset();
   }
 }

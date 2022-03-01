@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-md navbar-light">
         <a href="#" class="navbar-brand">Temp Auth</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
@@ -22,10 +22,12 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item">
-                    <a class="nav-link active">Logged in as <span class="username">{{ name }}</span></a>
+                    <a *ngIf="name" class="nav-link active">Logged in as: <span class="username">{{ name }}</span></a>
+                    <a *ngIf="!name" class="nav-link active">Not logged in</a>
+
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="cursor: pointer;" onClick="window.alert('Hehe! That tickled... click me again!')">Logout</a>
+                    <a class="nav-link" style="cursor: pointer;" (click)="logout()">Logout</a>
                 </li>
             </ul>
         </div>

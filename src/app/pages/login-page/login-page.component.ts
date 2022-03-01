@@ -17,10 +17,21 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  login(loginData: LoginData) {
-    this.authService
-      .login(loginData)
-      .then(() => this.router.navigate(['/dashboard']))
-      .catch((e) => console.log(e.message));
+  login(data: {email: string, password: string, isUser: boolean}) {
+    var loginRegisterData = {
+      email: data.email,
+      password: data.password
+    }
+    if (data.isUser) {
+      this.authService
+        .login(loginRegisterData)
+        .then(() => this.router.navigate(['/home']))
+        .catch((e) => console.log(e.message));
+    } else {
+      this.authService
+        .register(loginRegisterData)
+        .then(() => this.router.navigate(['/tenant-home']))
+        .catch((e) => console.log(e.message));
+    }
   }
 }
