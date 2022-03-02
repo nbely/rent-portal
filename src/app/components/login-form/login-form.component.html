@@ -1,0 +1,34 @@
+<form class="container-fluid" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="text-center col-md-6">
+            <img 
+                src="https://thetatau.org/wp-content/uploads/2020/07/ThetaTauLogo.png" 
+                style="width: 185px" 
+                alt="logo">
+        </div>
+        <div class="col-md-6">
+            <h3 class="text-center text-OT">{{ hasAccount ? "Login" : "Register" }}</h3>
+            <div class="form-group">
+                <label class="text-OT">Email:</label>
+                <input type="text" id="email" formControlName="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label class="text-OT">Password:</label>
+                <input type="password" id="password" formControlName="password" class="form-control">
+            </div>
+            <div class="form-group d-flex justify-content-between align-items-center">
+                <button 
+                    type="submit" 
+                    name="submit" 
+                    class="btn btn-primary"
+                    [disabled]="!form.valid">
+                    Submit
+                </button>
+                <a href="#" class="text-OT" (click)="hasAccount = !hasAccount">
+                    {{ hasAccount ? "Register" : "Login" }} here
+                </a>
+            </div>
+            <!--<label for="remember-me" class="text-OT"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>-->
+        </div>
+    </div>
+</form>
